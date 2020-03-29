@@ -31,7 +31,6 @@ describe('Relay Server', () => {
   })
 
   it('should be able to discover over the relay', async () => {
-    node1.on('peer:discovery', console.log)
     await Promise.all([node1, node2].map(n => n.start()))
 
     await pWaitFor(() => node1.peerStore.peers.size === 2)
